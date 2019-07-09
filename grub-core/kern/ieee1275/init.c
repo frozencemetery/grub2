@@ -52,7 +52,6 @@
 #define HEAP_MAX_SIZE		(unsigned long) (32 * 1024 * 1024)
 #endif
 
-extern char _start[];
 extern char _end[];
 
 #ifdef __sparc__
