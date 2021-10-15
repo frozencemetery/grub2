@@ -521,6 +521,7 @@ grub_dl_resolve_dependencies (grub_dl_t mod, Elf_Ehdr *e)
   return GRUB_ERR_NONE;
 }
 
+#ifndef GRUB_UTIL
 int
 grub_dl_ref (grub_dl_t mod)
 {
@@ -548,6 +549,7 @@ grub_dl_unref (grub_dl_t mod)
 
   return --mod->ref_count;
 }
+#endif
 
 int
 grub_dl_ref_count (grub_dl_t mod)
