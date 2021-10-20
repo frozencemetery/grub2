@@ -25,6 +25,11 @@ SUFFIX(grub_image_verify) (const char * const filename,
   grub_dl_t dlt;
 
   grub_env_set ("debug", "all");
-  dlt = grub_dl_load_core_noinit (image, size);
 
+  dlt = grub_dl_load_core_noinit (image, size);
+  if (dlt == NULL)
+  {
+    grub_dprintf("modules", "grub_dl_load_core_noinit failed: %s\n",
+		 grub_errmsg);
+  }
 }

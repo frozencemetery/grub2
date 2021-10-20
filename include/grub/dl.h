@@ -41,6 +41,8 @@
 #ifdef GRUB_UTIL
 #define GRUB_TARGET_CPU "powerpc"
 #define GRUB_PLATFORM "ieee1275"
+#define Elf_Sym Elf32_Sym
+#define Elf_Shdr Elf32_Shdr
 #endif
 
 #if !defined (GRUB_UTIL) && !defined (GRUB_MACHINE_EMU) && !defined (GRUB_KERNEL)
@@ -290,18 +292,6 @@ grub_dl_init (grub_dl_t mod)
 
   mod->next = grub_dl_head;
   grub_dl_head = mod;
-}
-
-static inline grub_dl_t
-grub_dl_get (const char *name)
-{
-  grub_dl_t l;
-
-  FOR_DL_MODULES(l)
-    if (grub_strcmp (name, l->name) == 0)
-      return l;
-
-  return 0;
 }
 
 static inline void

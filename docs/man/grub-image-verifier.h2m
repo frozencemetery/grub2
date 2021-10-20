@@ -1,0 +1,4 @@
+[NAME]
+grub-image-verifier \- check the integrity of a GRUB image
+[SEE ALSO]
+module-verifier, if it had a man page, which it doesn't
