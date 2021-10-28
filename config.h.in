@@ -66,4 +66,6 @@
 
 #  define _GNU_SOURCE 1
 
+#  define _GL_ATTRIBUTE_CONST __attribute__ ((const))
+
 #endif
