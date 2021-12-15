@@ -64,7 +64,24 @@
 
 #  define _GNU_SOURCE 1
 
+/* gnulib gets configured against the host, not the target, and the rest of
+ * our buildsystem works around that.  This is difficult to avoid as gnulib's
+ * detection requires a more capable system than our target.  Instead, we
+ * reach in and set values appropriately.  If, when updating gnulib,
+ * something breaks, there's probably a change needed here or in
+ * grub-core/Makefile.core.def. */
 #  define _GL_ATTRIBUTE_CONST
+#  define _GL_ATTRIBUTE_COLD
+#  define _GL_ATTRIBUTE_FALLTHROUGH ((void) 0)
+#  define _GL_ATTRIBUTE_MALLOC
+#  define _GL_INLINE inline
+#  define _GL_INLINE_HEADER_BEGIN
+#  define SIZE_MAX ((size_t) -1)
+#  define uint_fast32_t uint32_t
+#  define int_fast32_t int32_t
+
+/* We don't have an abort() for gnulib to call in regexp. */
+#  define abort() DEBUG_ASSERT(0)
 
 /* We don't have an abort() for gnulib to call in regexp. */
 #  define abort() DEBUG_ASSERT(0)
