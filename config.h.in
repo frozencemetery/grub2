@@ -66,4 +66,7 @@
 
 #  define _GL_ATTRIBUTE_CONST
 
+/* We don't have an abort() for gnulib to call in regexp. */
+#  define abort() DEBUG_ASSERT(0)
+
 #endif
